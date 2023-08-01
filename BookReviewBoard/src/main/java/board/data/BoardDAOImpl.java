@@ -1,5 +1,12 @@
 package board.data;
 
-public class BoardDAOImpl {
+import javax.servlet.ServletContext;
 
+import DB.DBconnect;
+
+public class BoardDAOImpl extends DBconnect implements BoardDAO {
+	
+	public BoardDAOImpl(ServletContext application) {
+		super(application);
+	}
 }

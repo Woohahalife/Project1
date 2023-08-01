@@ -1,5 +1,5 @@
 package board.data;
 
-public class BoardDAO {
+public interface BoardDAO {
 
 }

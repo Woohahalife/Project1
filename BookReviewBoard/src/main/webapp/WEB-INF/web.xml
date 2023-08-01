@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>BookReviewBoard</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+	<param-name>OracleDriver</param-name>  
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleURL</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521:xepdb1</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleID</param-name>
+  	<param-value>CHOI</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OraclePW</param-name>
+  	<param-value>alrtm1324!</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>maxPostSize</param-name>
+  	<param-value>1024000</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>posts_per_pages</param-name>
+  	<param-value>12</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>pages_per_blocks</param-name>
+  	<param-value>4</param-value>
+  </context-param>
+</web-app>
