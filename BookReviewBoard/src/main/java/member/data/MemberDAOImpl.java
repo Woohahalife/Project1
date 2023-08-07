@@ -36,7 +36,7 @@ public class MemberDAOImpl extends DBconnect implements MemberDAO{
 	@Override
 	public MemberDTO selectMember(String m_id, String m_pass) {// 로그인 처리 메서드
 		MemberDTO dto = new MemberDTO();
-		String query= "SELECT * MEMBER FROM member_info WHERE m_id=? and m_pass=?";
+		String query= "SELECT * FROM member_info WHERE m_id=? and m_pass=?";
 		
 		try {
 			psmt = con.prepareStatement(query);

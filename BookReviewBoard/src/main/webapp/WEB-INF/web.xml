@@ -16,7 +16,7 @@
   </context-param>
   <context-param>
   	<param-name>OracleURL</param-name>
-  	<param-value>jdbc:oracle:thin:@localhost:1521:xepdb1</param-value>
+  	<param-value>jdbc:oracle:thin:@localhost:1521/xepdb1</param-value>
   </context-param>
   <context-param>
   	<param-name>OracleID</param-name>

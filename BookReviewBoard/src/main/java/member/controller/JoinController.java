@@ -56,7 +56,7 @@ public class JoinController extends HttpServlet {
 			int result = dao.insertMember(dto);
 			
 			if(result == 1) {
-				JSFunctions.alertLocation(response, "회원가입을 축하합니다!", m_nickname);
+				JSFunctions.alertLocation(response, "회원가입을 축하합니다!", "../login/login.jsp");
 			}else {
 				JSFunctions.alertBack(response, "회원가입 오류입니다!");
 			}

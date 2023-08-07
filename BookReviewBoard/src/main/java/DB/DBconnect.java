@@ -27,7 +27,7 @@ public class DBconnect {
 			String id = application.getInitParameter("OracleID");
 			String pw = application.getInitParameter("OraclePW");
 			
-			con = DriverManager.getConnection(url);
+			con = DriverManager.getConnection(url, id, pw);
 			
 			System.out.println("DB연결성공");
 		

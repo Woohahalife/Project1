@@ -8,20 +8,20 @@ public class MemberDTO {
 	private String m_name;// 사용자 이름
 	private String m_email;// 사용자 이메일
 	private String m_nickname;// 사용자 닉네임
-	private Date m_Regidate;// 날짜
+	private Date m_regidate;// 날짜
 	
 	public MemberDTO() {
 		super();
 	}
 
-	public MemberDTO(String m_id, String m_pass, String m_name, String m_email, String m_nickname, Date m_Regidate) {
+	public MemberDTO(String m_id, String m_pass, String m_name, String m_email, String m_nickname, Date m_regidate) {
 		super();
 		this.m_id = m_id;
 		this.m_pass = m_pass;
 		this.m_name = m_name;
 		this.m_email = m_email;
 		this.m_nickname = m_nickname;
-		this.m_Regidate = m_Regidate;
+		this.m_regidate = m_regidate;
 	}
 
 	public String getM_id() {
@@ -64,12 +64,12 @@ public class MemberDTO {
 		this.m_nickname = m_nickname;
 	}
 
-	public Date getM_Regidate() {
-		return m_Regidate;
+	public Date getM_regidate() {
+		return m_regidate;
 	}
 
-	public void setM_Regidate(Date m_Regidate) {
-		this.m_Regidate = m_Regidate;
+	public void setM_Regidate(Date m_regidate) {
+		this.m_regidate = m_regidate;
 	}
 	
 	

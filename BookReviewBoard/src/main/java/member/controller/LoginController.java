@@ -45,16 +45,16 @@ public class LoginController extends HttpServlet {
 		//DTO에 값 저장
 		MemberDTO dto = dao.selectMember(m_id, m_pass);
 		
-		if((m_id != null && m_id.equals(dto.getM_id()) && (m_pass != null && m_pass.equals(dto.getM_pass())))) {
+		if((m_id.equals(dto.getM_id()) && (m_pass.equals(dto.getM_pass())))) {
 			//DTO통해 받은 데이터를 session에 저장
 			session.setAttribute("m_id", dto.getM_id());
 			session.setAttribute("m_pass", dto.getM_pass());
-			session.setAttribute("m_pass", dto.getM_name());
-			session.setAttribute("m_pass", dto.getM_email());
-			session.setAttribute("m_pass", dto.getM_nickname());
+			session.setAttribute("m_name", dto.getM_name());
+			session.setAttribute("m_email", dto.getM_email());
+			session.setAttribute("m_nickname", dto.getM_nickname());
 			session.setAttribute("m_pass", dto.getM_email());
 			
-			JSFunctions.alertLocation(response, "로그인 성공!", "../board/board.jsp");
+			JSFunctions.alertLocation(response, "로그인 성공!", "../board/home.jsp");
 		}else {
 			JSFunctions.alertBack(response, "로그인 오류입니다!");
 		}
