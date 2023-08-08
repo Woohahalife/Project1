@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "EUC-KR";
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ a {
 
 .board_wrap {
     width: 1000px;
-    margin: 10px auto;
+    margin: 100px auto;
 }
 
 .board_title {

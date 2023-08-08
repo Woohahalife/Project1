@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
    <title>book board</title>
     <link rel="stylesheet" href="css.css">
 </head>

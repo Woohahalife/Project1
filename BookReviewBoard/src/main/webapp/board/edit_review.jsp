@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>book board</title>
+ <title>book review</title>
     <link rel="stylesheet" href="css.css">
 </head>
 <body>
     <div class="board_wrap">
         <div class="board_title">
-            <strong>board</strong>
-            <p>자유게시판 입니다.</p>
+            <strong>book review</strong>
+            <p>북리뷰 게시판 입니다</p>
         </div>
         <div class="board_write_wrap">
             <div class="board_write">
@@ -24,9 +24,12 @@
                 <div class="info">
                     <dl>
                         <dt>글쓴이</dt>
-                        <dd><input type="text" placeholder="글쓴이 입력" value=""></dd>
+                        <dd><input type="text" placeholder="글쓴이" value=""></dd>
                     </dl>
-                    
+                    <dl>
+                        <dt>도서명</dt>
+                        <dd><input type="text" placeholder="도서명" value=""></dd>
+                    </dl>
                 </div>
                 <div class="cont">
                     <textarea placeholder="내용 입력">

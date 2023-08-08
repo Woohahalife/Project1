@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "EUC-KR";
 @media (max-width: 1000px) {
     .board_wrap {
         width: 100%;
@@ -76,7 +76,7 @@
 
     .board_write .title input[type="text"],
     .board_write .info input[type="text"],
-    .board_write .info input[type="text"] {
+    .board_write .info input[type="password"] {
         width: 100%;
     }
 }
