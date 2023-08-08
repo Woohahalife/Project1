@@ -20,12 +20,12 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 		int result = 0;
 		
 		String query = "insert into board_info("
-					 + "b_id, b_idx, b_bookname,b_name,b_title,b_content) "
+					 + "b_id, b_idx, b_bookname, b_name, b_title,b_content) "
 					 + "values(?, seq_board_info_num.nextval, ?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(query);
-			psmt.setString(1, dto.getB_name());
+			psmt.setString(1, dto.getB_id());
 			psmt.setInt(2, dto.getB_idx());
 			psmt.setString(3, dto.getB_bookname());
 			psmt.setString(4, dto.getB_name());
@@ -213,6 +213,19 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
             e.printStackTrace();
         }
 		return result;
+	}
+	
+	public void close() {
+		try {
+			if (rs != null) rs.close(); 
+			if (stmt != null) stmt.close();
+			if (psmt != null) psmt.close();
+			if (con != null) con.close(); 
+			
+			System.out.println("JDBC 자원 해제");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

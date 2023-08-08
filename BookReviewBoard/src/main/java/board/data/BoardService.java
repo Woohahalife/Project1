@@ -3,11 +3,14 @@ package board.data;
 import java.util.List;
 import java.util.Map;
 
-public class BoardService{
+import javax.servlet.ServletContext;
+
+public class BoardService {
 	
 	private BoardDAO dao;//인터페이스 선언
 	
 	public BoardService(BoardDAO dao) {
+		super();
 		this.dao = dao;
 	}
 

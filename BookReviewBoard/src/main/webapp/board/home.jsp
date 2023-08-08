@@ -21,18 +21,15 @@
                 <hr>
             </div>     
             <div class="container2">    
+	          <c:forEach items="${boardLists }" var="row" varStatus="loop">  
+	            <a href="view_board.jsp">
 	            <div class="block2">
-	               <div class="block2-image"><img src="test.jpg" width="240px" height="300px"></a></div>
+	               <div class="block2-image"><img src="test.jpg" width="240px" height="300px"></div>
 	               <div class="block2-title">제목</div>
 	               <div class="block2-nickname">글쓴이</div>
 	            </div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
-	            <div class="block2"></div>
+	            </a>
+	          </c:forEach>
             </div>
             <footer>
 	            <div class="container3">

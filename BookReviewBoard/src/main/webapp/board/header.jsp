@@ -71,7 +71,7 @@ ul {
                 <nav>
                     <ul>
                         <li><a href="#">추천북</a></li>
-                        <li><a href="">북리뷰</a></li>
+                        <li><a href="${pageContext.request.contextPath}/board/write_review.jsp">북리뷰</a></li>
                         <li><a href="">게시판</a></li>
                         <%if(session.getAttribute("m_id")==null) {%>
                             <li><a href="../login/login.jsp" class="btn">login</a></li> 

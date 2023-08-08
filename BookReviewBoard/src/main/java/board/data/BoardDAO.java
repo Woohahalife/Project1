@@ -14,4 +14,5 @@ public interface BoardDAO {
 	List<BoardDTO> bestPost(BoardDTO dto);
 	int updatePost(BoardDTO dto);
 	int deletePost(int b_idx);
+	void close();
 }

@@ -283,3 +283,26 @@ a {
     border: 0;
     resize: vertical;
 }
+
+.book-button {
+	margin-left: 5px;
+	width: 50px;
+	height: 38px;
+	color: white;
+	background-color: black;
+	border-radius: 3px;
+}
+
+.titlebar::placeholder {
+	color: black;
+}
+
+.regist-button {
+	min-width: 80px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    background-color: #000;
+    color: white;
+}

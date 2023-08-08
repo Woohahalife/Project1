@@ -6,7 +6,7 @@ public class BoardDTO {
 	private String b_id;// 작성자 아이디
 	private int b_idx;// 글번호
 	private String b_bookname;// 도서명
-	private String b_name;// 작성자명
+	private String b_name;// 작성자명(닉네임)
 	private String b_title;// 글제목
 	private String b_content;// 글내용
 	private Date b_postdate;// 작성날짜
