@@ -84,7 +84,7 @@
                             for (var i = 0; i < books.length; i++) {
                                 var book = books[i];
                                 var tr2 = $("<tr></tr>").html(
-                                	"<input name='title' type='hidden' value='" + book.title + "'/>" +
+                                	"<input name='bookname' type='hidden' value='" + book.title + "'/>" +
                                 	"<input name='authors' type='hidden' value='" + book.authors + "'/>" +
                                 	"<input name='publisher' type='hidden' value='" + book.publisher + "'/>" +
                                 	"<input name='isbn' type='hidden' value='" + book.isbn + "'/>" +

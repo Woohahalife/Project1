@@ -13,6 +13,11 @@
 <form method="post" action="${pageContext.request.contextPath}/controller/WriteController">
 
 <input name="b_id" type="hidden" value="${sessionScope.m_id }">
+<input name="authors" type="hidden" value="${requestScope.authors }">
+<input name="publisher" type="hidden" value="${requestScope.publisher }">
+<input name="isbn" type="hidden" value="${requestScope.isbn }">
+<input name="thumbnail" type="hidden" value="${requestScope.thumbnail }">
+   
     <div class="board_wrap">
         <div class="board_title">
             <strong>book review</strong>
@@ -33,7 +38,7 @@
                     </dl>
                     <dl>
                         <dt>도서명</dt>
-                        <dd><input name="b_bookname" class="titlebar" type="text" placeholder="${requestScope.title }" readonly></dd>
+                        <dd><input name="bookname" class="titlebar" type="text" value="${requestScope.bookname }" readonly></dd>
                         <dd><button type="button" class="book-button" onclick="location.href='bookSearch.jsp'">선택</button><dd>
                     </dl>
                 </div>

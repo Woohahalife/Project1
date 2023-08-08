@@ -33,17 +33,19 @@ public class BookinfoController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		HttpSession session = request.getSession();
-		String title= request.getParameter("title");
+		String bookname= request.getParameter("bookname");
 		String authors= request.getParameter("authors");
 		String publisher= request.getParameter("publisher");
 		String isbn= request.getParameter("isbn");
 		String thumbnail= request.getParameter("thumbnail");
 		
-		request.setAttribute("title", title);
+		
+		request.setAttribute("bookname", bookname);
 		request.setAttribute("authors", authors);
 		request.setAttribute("publisher", publisher);
 		request.setAttribute("isbn", isbn);
 		request.setAttribute("thumbnail", thumbnail);
+		
 		
 		request.getRequestDispatcher("../board/write_review.jsp").forward(request, response);
 		

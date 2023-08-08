@@ -20,17 +20,21 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 		int result = 0;
 		
 		String query = "insert into board_info("
-					 + "b_id, b_idx, b_bookname, b_name, b_title,b_content) "
-					 + "values(?, seq_board_info_num.nextval, ?, ?, ?, ?)";
+					 + "b_id, B_IDX, b_bookname, b_name, b_title, CONTENT, POSTDATE, AUTHORS, PUBLISHER, ISBN, THUMBNAIL) "
+					 + "values(?, seq_board_info_num.nextval, ?, ?, ?, ?, sysdate, ?, ?, ?, ?)";
 		
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, dto.getB_id());
-			psmt.setInt(2, dto.getB_idx());
-			psmt.setString(3, dto.getB_bookname());
-			psmt.setString(4, dto.getB_name());
-			psmt.setString(5, dto.getB_title());
-			psmt.setString(6, dto.getB_content());
+			psmt.setString(2, dto.getB_bookname());
+			psmt.setString(3, dto.getB_name());
+			psmt.setString(4, dto.getB_title());
+			psmt.setString(5, dto.getB_content());
+			psmt.setString(6, dto.getAuthors());
+			psmt.setString(7, dto.getPublisher());
+			psmt.setString(8, dto.getIsbn());
+			psmt.setString(9, dto.getThumnail());
+			
 			
 			result = psmt.executeUpdate();
 			
@@ -103,6 +107,10 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 				dto.setB_content(rs.getString(6));
 				dto.setB_postdate(rs.getDate(7));
 				dto.setB_visitcount(rs.getInt(8));
+				dto.setAuthors(rs.getString(9));
+				dto.setPublisher(rs.getString(10));
+				dto.setIsbn(rs.getString(11));
+				dto.setThumnail(rs.getString(12));
 				
 				board.add(dto);
 			}
@@ -164,6 +172,10 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 			dto.setB_content(rs.getString(6));
 			dto.setB_postdate(rs.getDate(7));
 			dto.setB_visitcount(rs.getInt(8));
+			dto.setAuthors(rs.getString(9));
+			dto.setPublisher(rs.getString(10));
+			dto.setIsbn(rs.getString(11));
+			dto.setThumnail(rs.getString(12));
 			
 			board.add(dto);
 			

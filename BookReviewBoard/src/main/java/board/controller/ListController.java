@@ -27,17 +27,7 @@ public class ListController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContext application = this.getServletContext();
-		BoardDAO dao = new BoardDAOImpl(application);
-		BoardService service = new BoardService(dao);
-		
-		
-		
-		BoardDTO dto = new BoardDTO();
-		
-		
-		service.addPost(dto);
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

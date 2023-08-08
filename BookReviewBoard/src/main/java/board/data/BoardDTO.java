@@ -11,13 +11,18 @@ public class BoardDTO {
 	private String b_content;// 글내용
 	private Date b_postdate;// 작성날짜
 	private int b_visitcount;// 방문자수
+	private String authors;//작가명
+	private String publisher;//출판사명
+	private String isbn;//출판번호
+	private String thumnail;//썸네일링크
+	
 	
 	public BoardDTO() {
 		super();
 	}
 
 	public BoardDTO(String b_id, int b_idx, String b_bookname, String b_name, String b_title, String b_content,
-			Date b_postdate, int b_visitcount) {
+			Date b_postdate, int b_visitcount, String authors, String publisher, String isbn, String thumnail) {
 		super();
 		this.b_id = b_id;
 		this.b_idx = b_idx;
@@ -27,7 +32,12 @@ public class BoardDTO {
 		this.b_content = b_content;
 		this.b_postdate = b_postdate;
 		this.b_visitcount = b_visitcount;
+		this.authors = authors;
+		this.publisher = publisher;
+		this.isbn = isbn;
+		this.thumnail = thumnail;
 	}
+
 
 	public String getB_id() {
 		return b_id;
@@ -91,6 +101,38 @@ public class BoardDTO {
 
 	public void setB_visitcount(int b_visitcount) {
 		this.b_visitcount = b_visitcount;
+	}
+
+	public String getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(String authors) {
+		this.authors = authors;
+	}
+
+	public String getPublisher() {
+		return publisher;
+	}
+
+	public void setPublisher(String publisher) {
+		this.publisher = publisher;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+
+	public String getThumnail() {
+		return thumnail;
+	}
+
+	public void setThumnail(String thumnail) {
+		this.thumnail = thumnail;
 	}
 	
 	

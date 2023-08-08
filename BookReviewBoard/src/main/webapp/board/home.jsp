@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="homeStyle.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/board/homeStyle.css" />
 </head>
 <body>
     <body>
@@ -22,14 +22,17 @@
             </div>     
             <div class="container2">    
 	          <c:forEach items="${boardLists }" var="row" varStatus="loop">  
-	            <a href="view_board.jsp">
+	            <a href="../controller/ViewController?idx=${row.thumnail }">
 	            <div class="block2">
-	               <div class="block2-image"><img src="test.jpg" width="240px" height="300px"></div>
-	               <div class="block2-title">제목</div>
-	               <div class="block2-nickname">글쓴이</div>
+	               <div class="block2-image"><img src="${row.b_title }" width="240px" height="300px"></div>
+	               <div class="block2-title">${row.b_title }</div>
+	               <div class="block2-nickname">${row.b_nickname }</div>
 	            </div>
 	            </a>
 	          </c:forEach>
+            </div>
+            <div class="paging">
+            ${map.pagingImg }
             </div>
             <footer>
 	            <div class="container3">
