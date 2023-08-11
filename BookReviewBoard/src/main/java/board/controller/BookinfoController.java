@@ -46,6 +46,10 @@ public class BookinfoController extends HttpServlet {
 		request.setAttribute("isbn", isbn);
 		request.setAttribute("thumbnail", thumbnail);
 		
+		System.out.println(bookname);
+		
+		
+		
 		
 		request.getRequestDispatcher("../board/write_review.jsp").forward(request, response);
 		

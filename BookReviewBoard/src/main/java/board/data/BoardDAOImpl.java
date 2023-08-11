@@ -80,14 +80,14 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 		
 		String query = "select * from ("
 					 + "select Tb.*, rownum rNum from ("
-					 + "select * from board_info";
+					 + "select * from board_info ";
 		
 		if(map.get("searchWord") != null) {
 			query += " where " + map.get("searchField") 
 				  + " like '%" + map.get("searchWord") + "%' ";
 		}
 		
-		query += "order by idx desc"
+		query += " order by b_idx desc"
 				+ ")Tb "
 				+ " ) where rNum between ? and ?";
 		
@@ -99,8 +99,8 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 			
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
-				dto.setB_id(rs.getString(1));
-				dto.setB_idx(rs.getInt(2));
+				dto.setB_idx(rs.getInt(1));
+				dto.setB_id(rs.getString(2));
 				dto.setB_bookname(rs.getString(3));
 				dto.setB_name(rs.getString(4));
 				dto.setB_title(rs.getString(5));
@@ -131,6 +131,21 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 			psmt = con.prepareStatement(query);
 			psmt.setInt(1, b_idx);
 			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setB_idx(rs.getInt(1));
+				dto.setB_id(rs.getString(2));
+				dto.setB_bookname(rs.getString(3));
+				dto.setB_name(rs.getString(4));
+				dto.setB_title(rs.getString(5));
+				dto.setB_content(rs.getString(6));
+				dto.setB_postdate(rs.getDate(7));
+				dto.setB_visitcount(rs.getInt(8));
+				dto.setAuthors(rs.getString(9));
+				dto.setPublisher(rs.getString(10));
+				dto.setIsbn(rs.getString(11));
+				dto.setThumnail(rs.getString(12));
+			}
 		}catch(Exception e) {
 			System.out.println("게시물 상세보기 중 예외 발생");
 			e.printStackTrace();
@@ -138,46 +153,38 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 		
 		return dto;
 	}
-
-	@Override
-	public void updateVisitCount(int b_idx) {
-		
-		String quary = "update board_info set "
-				+ "visitcount=visitcount+1 "
-				+ "where idx=?";
-		try {
-			
-		}catch(Exception e) {
-            System.out.println("게시물 조회수 증가 중 예외 발생");
-            e.printStackTrace();
-        }
-	}
+	
 	@Override//방문자 수가 높은 게시물 3개만 따로 출력
-	public List<BoardDTO> bestPost(BoardDTO dto) {
+	public List<BoardDTO> bestPost() {
 		List<BoardDTO> board = new ArrayList<BoardDTO>();
 		String query = "select * from ("
-				 + "select Tb.*, rownum rNum from ("
-				 + "select * from board_info order by visitcount desc "
-				 + ") Tb "
-				 + ") where rNum between 1 and 3";
+				+ "select Tb.*, rownum rNum from ("
+				+ "select * from board_info order by visitcount desc "
+				+ ") Tb "
+				+ ") where rNum between 1 and 3";
 		
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);
-			dto.setB_id(rs.getString(1));
-			dto.setB_idx(rs.getInt(2));
-			dto.setB_bookname(rs.getString(3));
-			dto.setB_name(rs.getString(4));
-			dto.setB_title(rs.getString(5));
-			dto.setB_content(rs.getString(6));
-			dto.setB_postdate(rs.getDate(7));
-			dto.setB_visitcount(rs.getInt(8));
-			dto.setAuthors(rs.getString(9));
-			dto.setPublisher(rs.getString(10));
-			dto.setIsbn(rs.getString(11));
-			dto.setThumnail(rs.getString(12));
 			
-			board.add(dto);
+			while(rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setB_idx(rs.getInt(1));
+				dto.setB_id(rs.getString(2));
+				dto.setB_bookname(rs.getString(3));
+				dto.setB_name(rs.getString(4));
+				dto.setB_title(rs.getString(5));
+				dto.setB_content(rs.getString(6));
+				dto.setB_postdate(rs.getDate(7));
+				dto.setB_visitcount(rs.getInt(8));
+				dto.setAuthors(rs.getString(9));
+				dto.setPublisher(rs.getString(10));
+				dto.setIsbn(rs.getString(11));
+				dto.setThumnail(rs.getString(12));
+				
+
+				board.add(dto);
+			}
 			
 		}catch(Exception e) {
 			System.out.println("베스트 게시물 개시 중 예외 발생");
@@ -185,20 +192,37 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 		}
 		return board;
 	}
+
+	@Override
+	public void updateVisitCount(int b_idx) {
+		
+		String quary = "update board_info set "
+					 + "visitcount=visitcount+1 "
+					  + "where b_idx=?";
+		try {
+			psmt = con.prepareStatement(quary);
+			psmt.setInt(1, b_idx);
+			psmt.executeQuery();
+			
+		}catch(Exception e) {
+            System.out.println("게시물 조회수 증가 중 예외 발생");
+            e.printStackTrace();
+        }
+	}
 	
 	@Override
 	public int updatePost(BoardDTO dto) {
 		int result = 0;
-		String query = "update board_info "
-					 + "set b.id=?, b_name=?, b_title=?, b_content=?, b_idx=?";
+		String query = "update board_info set "
+					 + "b_name=?, b_title=?, content=? where b_idx=?";
 		
 		try {
 			psmt=con.prepareStatement(query);
-			psmt.setString(1, dto.getB_id());
-			psmt.setString(2, dto.getB_name());
-			psmt.setString(3, dto.getB_title());
-			psmt.setString(4, dto.getB_content());
-			psmt.setInt(5, dto.getB_idx());//dto상 idx와 일치시키기 위함
+			
+			psmt.setString(1, dto.getB_name());
+			psmt.setString(2, dto.getB_title());
+			psmt.setString(3, dto.getB_content());
+			psmt.setInt(4, dto.getB_idx());//dto상 idx와 일치시키기 위함
 			
 			result = psmt.executeUpdate();
 			
@@ -212,7 +236,7 @@ public class BoardDAOImpl extends DBconnect implements BoardDAO {
 	@Override
 	public int deletePost(int b_idx) {
 		int result = 0;
-		String query = "delete from board_info where idx=?";
+		String query = "delete from board_info where b_idx=?";
 		
 		try {
 			psmt = con.prepareStatement(query);

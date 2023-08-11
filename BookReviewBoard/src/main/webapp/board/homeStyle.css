@@ -1,21 +1,24 @@
   .page {
-    width: 1100px;
+    width: 1180px;
     margin: 0 auto;
   }
   
   .container{
-    margin-top: 100px;
+    margin-top: 20px;
     text-align : center;
   }
 .block{
     border: solid #bcbcbc;
     margin: 5px;
     width : 300px;
-    height: 310px;
+    height: 360px;
     display: inline-block;
+    background-color: #14213d;
+    border-radius: 6px;
 }
 
 .container2{
+	width: 1180px;
     margin-top: 20px;
     margin: 0 auto;
     display: flex;
@@ -28,26 +31,57 @@
     border: solid #bcbcbc;
     margin: 5px;
     width : 240px;
-    height: 300px;
+    height: 350px;
     display: inline-block;
+    background-color: #14213d;
+    border-radius: 6px;
+}
+
+.block-image {
+    text-align: center;
+    height: 64%;
+    padding: 15px;
+    
+    
+}
+.block-title {
+    margin:10px 10px 5px 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.block-nickname {
+    margin:0px 10px;
+    color: white;
+    font-weight: 500;
+    
 }
 
 .block2-image {
 	text-align: center;
-	height: 65%;
+	height: 60%;
+	padding: 15px;
+	
 }
 .block2-title {
-	margin:10px 10px;
+	margin:10px 10px 15px 10px;
 	color: white;
 	font-weight: bold;
-	font-size: x-large;
+	font-size: 17px;
 }
 
 .block2-nickname {
-    margin:10px 10px;
+    margin:0px 10px;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
 	
+}
+
+.block2-postdate {
+	margin:0px 10px;
+    color: white;
+    font-weight: 500;
 }
 
   footer {
@@ -75,3 +109,83 @@
     color:white;
     text-decoration: none;
   }
+  
+table {
+ margin: 10px auto;
+}
+table, td, th {
+    border-collapse : collapse;
+}
+.search{
+   
+}
+#input1{
+   
+ border-top : none;
+ border-left : none;
+ border-right : none;
+ border-bottom : 3px solid-black;
+}
+
+
+#input2{
+background-color: black;
+color: white;
+
+}
+.paging {
+	text-align: center;
+}
+
+#page, #bpage, #npage
+{
+color: black;
+background-color: #EAEAEA;
+border: 1px solid #EAEAEA;
+border-radius: 5px;
+display: inline-block;
+width: 30px;
+margin: 3px;
+text-align: center;
+padding:3px 0 6px 0;
+font-family: sans-serif;
+}
+#cpage
+{
+color: white;
+background-color: black;
+border: 1px solid #EAEAEA;
+border-radius: 5px;
+display: inline-block;
+width: 30px;
+margin: 3px;
+text-align: center;
+padding:3px 0 6px 0;
+font-family: sans-serif;
+}
+#List
+{
+background-color: #EAEAEA;
+}
+#list:hover
+{
+color: #0000CD;
+}
+#bpage:hover, #npage:hover
+{
+background-color: #00008C;
+color: white;
+}
+
+.recommend{
+   font-size: 25px;
+   text-align: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 500,
+  'GRAD' 0,
+  'opsz' 100
+}

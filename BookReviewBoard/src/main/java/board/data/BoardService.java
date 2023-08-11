@@ -26,6 +26,10 @@ public class BoardService {
 		return dao.selectPage(map);
 	}
 	
+	public List<BoardDTO> bestPostList() {
+		return dao.bestPost();
+	}
+	
 	public BoardDTO viewDetails(int b_idx) {
 		return dao.selectView(b_idx);
 	}
@@ -34,8 +38,8 @@ public class BoardService {
 		dao.updateVisitCount(b_idx);
 	}
 	
-	public List<BoardDTO> bestPost(BoardDTO dto) {
-		return dao.bestPost(dto);
+	public List<BoardDTO> bestPost() {
+		return dao.bestPost();
 	}
 	
 	public int postUpdate(BoardDTO dto) {

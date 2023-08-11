@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
                     <dl>
                         <dt>도서명</dt>
                         <dd><input name="bookname" class="titlebar" type="text" value="${requestScope.bookname }" readonly></dd>
-                        <dd><button type="button" class="book-button" onclick="location.href='bookSearch.jsp'">선택</button><dd>
+                        <dd><button type="button" class="book-button" onclick="location.href='${pageContext.request.contextPath}/board/bookSearch.jsp'">선택</button><dd>
                     </dl>
                 </div>
                 <div class="cont">
@@ -48,7 +48,7 @@
             </div>
             <div class="bt_wrap">
                 <button type="submit" class="regist-button"> 등록</button>
-                <a href="${pageContext.request.contextPath}/board/home.jsp">돌아가기</a>
+                <a href="${pageContext.request.contextPath}/controller/ListController">돌아가기</a>
             </div>
         </div>
     </div>

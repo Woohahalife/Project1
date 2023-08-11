@@ -17,7 +17,7 @@
                 <input type="text" name="m_id" placeholder="id">
                 <input type="password" name="m_pass" placeholder="Password">
                 <label for="remember-check">
-                    <input type="checkbox" id="remember-check">아이디 저장하기
+                    <input type="checkbox" id="remember-check" name="remember-check">아이디 저장하기
                 </label>
                 <input type="submit" value="Login">
                 <input type="button" onclick="location.href='../login/join.jsp'" value="회원가입">

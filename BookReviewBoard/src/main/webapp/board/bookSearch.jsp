@@ -70,7 +70,6 @@
                         resultsDiv.append("<h2>검색 결과 " + books.length + "</h2>");
 
                         if (books.length > 0) {
-                        	var form = $("<form method='post' action='../controller/BookinfoController'></form>")
                             var table = $("<table border='1' id='eventTable'></table>");
                             var tr1 = $("<tr></tr>").html(
                             	"<th>제목</th>" +    		
@@ -81,26 +80,28 @@
                             	"<th>선택</th>"
                             );
                             table.append(tr1);
+                            
                             for (var i = 0; i < books.length; i++) {
                                 var book = books[i];
                                 var tr2 = $("<tr></tr>").html(
-                                	"<input name='bookname' type='hidden' value='" + book.title + "'/>" +
-                                	"<input name='authors' type='hidden' value='" + book.authors + "'/>" +
-                                	"<input name='publisher' type='hidden' value='" + book.publisher + "'/>" +
-                                	"<input name='isbn' type='hidden' value='" + book.isbn + "'/>" +
-                                	"<input name='thumbnail' type='hidden' value='" + book.thumbnail + "'/>" +
+                                		
                                     "<td> " + book.title + "</td>" +
                                     "<td> " + book.authors + "</td>" +
                                     "<td> " + book.publisher + "</td>" +
                                     "<td> " + book.isbn + "</td>" +
                                     "<td><img src='" + book.thumbnail + "' width='100px' height='100px' />" +
-                                    "<td><input type='submit' value='선택'></td>"
+                                	"<td><form method='post' action='../controller/BookinfoController'>" +
+                                	"<input name='bookname' type='hidden' value='" + book.title + "'/>" +
+                                	"<input name='authors' type='hidden' value='" + book.authors + "'/>" +
+                                	"<input name='publisher' type='hidden' value='" + book.publisher + "'/>" +
+                                	"<input name='isbn' type='hidden' value='" + book.isbn + "'/>" +
+                                	"<input name='thumbnail' type='hidden' value='" + book.thumbnail + "'/>" +
+                                    "<input type='submit' value='선택'></form></td>"
                                     
                                 );
                                 table.append(tr2);
                             }
-                            form.append(table);
-                            resultsDiv.append(form);
+                            resultsDiv.append(table);
                         } else {
                             resultsDiv.append("<p>검색 결과가 없습니다.</p>");
                         }

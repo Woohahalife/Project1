@@ -54,9 +54,9 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("m_nickname", dto.getM_nickname());
 			session.setAttribute("m_pass", dto.getM_email());
 			
-			JSFunctions.alertLocation(response, "로그인 성공!", "../board/home.jsp");
+			JSFunctions.alertLocation(response, "로그인 성공!", "../controller/ListController");
 		}else {
-			JSFunctions.alertBack(response, "로그인 오류입니다!");
+			JSFunctions.alertLocation(response, "로그인이 필요합니다!", "../login/login.jsp");
 		}
 	}
 

@@ -75,8 +75,7 @@ public class WriteController extends HttpServlet {
 		int result = service.addPost(dto);
 		dao.close();
 		
-		request.getRequestDispatcher("../board/home.jsp").forward(request, response);
-	
+		response.sendRedirect("../controller/ListController");
 	
 	}
 

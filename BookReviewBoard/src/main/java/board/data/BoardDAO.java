@@ -11,7 +11,7 @@ public interface BoardDAO {
 	List<BoardDTO> selectPage(Map<String, Object> map);
 	BoardDTO selectView(int b_idx);
 	void updateVisitCount(int b_idx);
-	List<BoardDTO> bestPost(BoardDTO dto);
+	List<BoardDTO> bestPost();
 	int updatePost(BoardDTO dto);
 	int deletePost(int b_idx);
 	void close();
